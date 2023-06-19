@@ -5,6 +5,14 @@ public class restApimodel {
     private  Integer id;
     private  String name;
 
+    private Integer age;
+
+    public restApimodel(Integer id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -29,6 +37,5 @@ public class restApimodel {
         this.age = age;
     }
 
-    private  Integer age;
 
 }

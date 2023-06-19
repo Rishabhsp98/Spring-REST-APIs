@@ -1,12 +1,14 @@
 package com.example.springrestapis;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController   // to make visible to dispatcherServlet
+//@RestController   // to make visible to dispatcherServlet
 public class springcontrollerAPIs {
 
 
@@ -62,8 +64,6 @@ public class springcontrollerAPIs {
         }
         this.mp.put(restApimodel.getId(),restApimodel); // storing map of request body to id
     }
-
-    // put api , patch api and delete api
 
 
 
