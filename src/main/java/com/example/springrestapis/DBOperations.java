@@ -62,7 +62,6 @@ public class DBOperations {
             int id = rs.getInt("id");
             String name = rs.getString("name");
             Integer age = rs.getInt("age");
-
             restApimodel employee = new restApimodel(id, name, age);
             return employee;
         }
@@ -87,5 +86,24 @@ public class DBOperations {
                 employeeList.add(employee);
             }
             return employeeList;
+    }
+
+    public void updateEmployee(restApimodel restApimodel) throws SQLException {
+        // getId from model they sent
+        Integer empId = restApimodel.getId();
+        String Updater = "update employee SET name = '"+ restApimodel.getName() +"',"+  "age ="+ restApimodel.getAge() +" where id = "+ empId;
+
+        Statement statement = this.connection.createStatement(); // empty statement
+        int result = statement.executeUpdate(Updater);
+
+        logger.info("Number of employees updated {}",result);
+    }
+
+    public void deleteEmployee(Integer empId) throws SQLException {
+        //delete from employee where id = empId;
+        String deleteQuery = "delete from employee where id = "+ empId;
+        Statement statement = this.connection.createStatement(); // empty statement
+        int result = statement.executeUpdate(deleteQuery);
+        logger.info("Number of employee Deleted {}", result);
     }
 }

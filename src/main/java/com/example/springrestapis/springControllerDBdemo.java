@@ -36,7 +36,7 @@ public class springControllerDBdemo {
 
     @PutMapping("/employee/id/{id}")
     public void updateEmployee(@RequestBody restApimodel restApimodel) throws Exception {
-
+        this.dbOperations.updateEmployee(restApimodel);
     }
     @PatchMapping("/employee/id/{id}")
     public restApimodel patchUpdateEmployee(@RequestBody restApimodel restApimodel)
@@ -45,8 +45,8 @@ public class springControllerDBdemo {
     }
 
     @DeleteMapping("/employee/id/{id}")
-    public void deleteEmployee(@PathVariable("id") int id){
-
+    public void deleteEmployee(@PathVariable("id") int id) throws SQLException {
+        this.dbOperations.deleteEmployee(id);
     }
 
 
